@@ -1001,9 +1001,9 @@ const App = () => {
                 <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>06 · Who It’s For</h2>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
               </div>
-              <WordReveal as="h3" text="This Only Works for the Right Brand" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
+              <WordReveal as="h3" text="Is This a Fit for Your Business?" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
               <p className={theme.textMuted}>
-                We take on a limited number of engine clients so every channel gets senior attention. Here’s the honest filter.
+                We work with a few clients at a time, so every channel gets senior attention. Here’s an honest filter.
               </p>
             </div>
           </Reveal>
