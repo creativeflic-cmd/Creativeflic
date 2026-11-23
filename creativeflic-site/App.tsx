@@ -883,7 +883,7 @@ const App = () => {
               <div className="flex-grow">
                 <div className={`text-xs font-black uppercase tracking-widest mb-1.5 ${kicker}`}>Start here · Pilot · One-time</div>
                 <h4 className={`text-xl md:text-2xl font-black mb-1.5 ${theme.text}`}>Try us for 30 days: strategy + 2 finished videos for $1,500</h4>
-                <p className={`text-sm ${theme.textMuted}`}>Your channel plan, topic map and title/thumbnail style, plus 2 videos made and published. <span className={`font-semibold ${theme.text}`}>Credited to your first month if you continue.</span></p>
+                <p className={`text-sm ${theme.textMuted}`}>Your channel plan, topic map and title/thumbnail style, plus 2 videos scripted, edited and published. You record, we handle the rest. <span className={`font-semibold ${theme.text}`}>Credited to your first month if you continue.</span></p>
               </div>
               <button onClick={() => scrollToSection('contact')} className={`btn-sheen shrink-0 px-7 py-3.5 ${brandBlue} text-white font-bold rounded-full hover:bg-blue-500 transition-all text-sm inline-flex items-center gap-2`}>
                 Start with a Pilot <ArrowRight size={16} />
@@ -897,10 +897,10 @@ const App = () => {
                 
                 <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Starter</div>
                 <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Starter</h4>
-                <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$1,200<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
+                <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$2,000<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
                 <p className={`text-sm mb-6 ${theme.textMuted}`}>Editing plus a monthly content plan, for channels that already know their direction.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['About 4 long-form videos a month', 'Monthly topic and title plan', 'Edits in your channel style', 'Loom updates and support'].map((item, i) => (
+                  {['About 4 long-form videos a month', 'Monthly topic and title plan', 'Edits in your channel style', 'A thumbnail for every video', 'Loom updates and support'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>
@@ -932,7 +932,7 @@ const App = () => {
                 <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$5,500<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
                 <p className={`text-sm mb-6 ${theme.textMuted}`}>Everything in Revenue Engine, plus:</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['Repurposing pack: LinkedIn, IG and TikTok cuts', 'Ad-creative versions of winning videos', 'Light YouTube Ads amplification', 'Priority production queue'].map((item, i) => (
+                  {['Repurposing pack: LinkedIn, IG and TikTok cuts', 'Ad-creative versions of winning videos', 'YouTube Ads setup and management (ad spend billed separately)', 'Priority production queue'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>

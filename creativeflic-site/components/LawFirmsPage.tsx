@@ -41,7 +41,7 @@ const LawFirmsPage: React.FC = () => {
     { q: 'How much of my time does it take?', a: 'About 2–3 hours a week of recording, or less if you batch it. We handle topics, scripts, editing, thumbnails, SEO and publishing.' },
     { q: 'Is this compliant with attorney advertising rules?', a: 'The content is educational, not legal advice, and we add a clear “not legal advice” disclaimer. You approve every script and every video before it goes live.' },
     { q: 'How soon will we see results?', a: 'Videos start ranking within the first few months, and enquiries usually follow in months 4 to 6 as the library grows. YouTube compounds: each video keeps working long after it is published.' },
-    { q: 'What does it cost?', a: 'Plans start from $1,200 a month for editing and strategy, and from $3,500 a month for the full done-for-you channel. We will recommend the right fit after the free audit.' },
+    { q: 'What does it cost?', a: 'There is a one-time $1,500 Pilot (strategy plus 2 finished videos). Monthly plans start from $2,000 for editing and strategy, and from $3,500 a month for the full done-for-you channel. We will recommend the right fit after the free audit.' },
   ];
 
   return (
