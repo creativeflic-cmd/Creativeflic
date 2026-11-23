@@ -34,7 +34,6 @@ import {
   Mic,
   Calendar
 } from 'lucide-react';
-import Preloader from './components/Preloader';
 import SectionParticles from './components/Particles';
 import CFLogo from './components/CFLogo';
 import InfiniteTicker from './components/InfiniteTicker';
@@ -55,7 +54,6 @@ import FounderVideo from './components/FounderVideo';
 import VideoTile from './components/VideoTile';
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showSuccessOverlay, setShowSuccessOverlay] = useState(false);
@@ -131,10 +129,9 @@ const App = () => {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [loading]);
+  }, []);
 
   useEffect(() => {
-    if (loading) return;
     const ids = ['home', 'work', 'samples', 'testimonials', 'how', 'pricing', 'fit', 'faq', 'contact'];
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) setActiveSection((e.target as HTMLElement).id); }),
@@ -142,7 +139,7 @@ const App = () => {
     );
     ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
     return () => obs.disconnect();
-  }, [loading]);
+  }, []);
 
   const handleSuccess = () => {
     track('generate_lead', { form: 'free_audit' });
@@ -466,14 +463,6 @@ const App = () => {
   const [showAllCases, setShowAllCases] = useState(false);
 
   const isLawPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === '/law-firms';
-
-  if (loading) {
-    return (
-      <div className={`min-h-screen font-sans ${theme.bg}`}>
-        <Preloader onComplete={() => setLoading(false)} />
-      </div>
-    );
-  }
 
   if (isLawPage) return <LawFirmsPage />;
 
