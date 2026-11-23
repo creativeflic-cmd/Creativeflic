@@ -45,6 +45,7 @@ import CaseStudyModal from './components/CaseStudyModal';
 import { track } from './analytics';
 import { BOOKING_URL } from './config';
 import LawFirmsPage from './components/LawFirmsPage';
+import AuditPopup, { markLeadSent } from './components/AuditPopup';
 import WordReveal from './components/WordReveal';
 import WorkDemo from './components/WorkDemo';
 import CountUp from './components/CountUp';
@@ -145,6 +146,7 @@ const App = () => {
 
   const handleSuccess = () => {
     track('generate_lead', { form: 'free_audit' });
+    markLeadSent();
     setShowSuccessOverlay(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -477,6 +479,8 @@ const App = () => {
 
   return (
     <div className={`min-h-screen font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden transition-colors duration-500 ${theme.bg} ${theme.text}`}>
+
+      <AuditPopup onFullForm={() => scrollToSection('contact')} />
 
       <SuccessOverlay
         isVisible={showSuccessOverlay}
@@ -884,16 +888,30 @@ const App = () => {
             </div>
           </Reveal>
 
+          {/* Pilot: the low-risk first step */}
+          <Reveal variant="fade-up">
+            <div className={`max-w-6xl mx-auto mb-8 p-6 md:p-7 rounded-3xl border flex flex-col md:flex-row md:items-center gap-5 ${isDark ? 'border-yellow-400/30 bg-yellow-400/[0.04]' : 'border-yellow-500/40 bg-yellow-50'}`}>
+              <div className="flex-grow">
+                <div className={`text-xs font-black uppercase tracking-widest mb-1.5 ${kicker}`}>Start here · Pilot · One-time</div>
+                <h4 className={`text-xl md:text-2xl font-black mb-1.5 ${theme.text}`}>Try us for 30 days: strategy + 2 finished videos for $1,500</h4>
+                <p className={`text-sm ${theme.textMuted}`}>Your channel plan, topic map and title/thumbnail style, plus 2 videos made and published. <span className={`font-semibold ${theme.text}`}>Credited to your first month if you continue.</span></p>
+              </div>
+              <button onClick={() => scrollToSection('contact')} className={`btn-sheen shrink-0 px-7 py-3.5 ${brandBlue} text-white font-bold rounded-full hover:bg-blue-500 transition-all text-sm inline-flex items-center gap-2`}>
+                Start with a Pilot <ArrowRight size={16} />
+              </button>
+            </div>
+          </Reveal>
+
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-            {/* Strategy Sprint */}
             <Reveal delay={0} variant="scale-up" className="h-full">
-              <div className={`p-8 rounded-3xl border h-full flex flex-col transition-all duration-300 hover:-translate-y-2 spotlight-card ${theme.spotlightCard}`} onMouseMove={handleSpotlightMove}>
-                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Step 1 · One-Time</div>
-                <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Strategy Sprint</h4>
-                <div className={`text-3xl font-black mb-6 ${theme.text}`}>$1,950<span className={`text-base font-bold ${theme.textMuted}`}> one-time</span></div>
-                <p className={`text-sm mb-6 ${theme.textMuted}`}>30 days. Everything needed before a single video ships. <span className={`font-bold ${theme.text}`}>Credited in full against month 1 when you start a 6-month Engine plan.</span></p>
+              <div className={`p-8 rounded-3xl h-full flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 spotlight-card border ${theme.spotlightCard}`} onMouseMove={handleSpotlightMove}>
+                
+                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Starter</div>
+                <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Starter</h4>
+                <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$1,200<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
+                <p className={`text-sm mb-6 ${theme.textMuted}`}>Editing plus a monthly content plan, for channels that already know their direction.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['Audience research & keyword demand map', 'Channel architecture', '90-day content calendar', 'Title and thumbnail style for your channel'].map((item, i) => (
+                  {['About 4 long-form videos a month', 'Monthly topic and title plan', 'Edits in your channel style', 'Loom updates and support'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>
@@ -901,17 +919,15 @@ const App = () => {
                 </ul>
               </div>
             </Reveal>
-
-            {/* Core Retainer - featured */}
             <Reveal delay={100} variant="scale-up" className="h-full">
               <div className={`p-8 rounded-3xl h-full flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 spotlight-card border-2 ${isDark ? 'border-blue-500/60 bg-neutral-900/60 shadow-[0_0_40px_rgba(37,99,235,0.12)]' : 'border-blue-600 bg-white shadow-2xl'}`} onMouseMove={handleSpotlightMove}>
                 <div className="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-bl-xl">Most Popular</div>
-                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Step 2 · Monthly</div>
+                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Most popular</div>
                 <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Revenue Engine</h4>
                 <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$3,500<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
-                <p className={`text-sm mb-6 ${theme.textMuted}`}>The full engine, running every month.</p>
+                <p className={`text-sm mb-6 ${theme.textMuted}`}>The full done-for-you channel, running every month.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['4 long-form videos + 8 shorts monthly', 'Thumbnails, titles & YouTube SEO', 'Publishing & full channel management', 'Live leading-indicator dashboard', 'Monthly strategy call'].map((item, i) => (
+                  {['4 long-form videos + 8 shorts monthly', 'Strategy, scripts and on-camera guidance', 'Thumbnails, titles & YouTube SEO', 'Publishing & full channel management', 'Weekly reporting + monthly strategy call'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>
@@ -919,11 +935,10 @@ const App = () => {
                 </ul>
               </div>
             </Reveal>
-
-            {/* Growth Tier */}
             <Reveal delay={200} variant="scale-up" className="h-full">
-              <div className={`p-8 rounded-3xl border h-full flex flex-col transition-all duration-300 hover:-translate-y-2 spotlight-card ${theme.spotlightCard}`} onMouseMove={handleSpotlightMove}>
-                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Scale · Monthly</div>
+              <div className={`p-8 rounded-3xl h-full flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 spotlight-card border ${theme.spotlightCard}`} onMouseMove={handleSpotlightMove}>
+                
+                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Scale</div>
                 <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Growth Engine</h4>
                 <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$5,500<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
                 <p className={`text-sm mb-6 ${theme.textMuted}`}>Everything in Revenue Engine, plus:</p>
@@ -937,6 +952,33 @@ const App = () => {
               </div>
             </Reveal>
           </div>
+
+          {/* Editing only */}
+          <Reveal delay={200} variant="fade-up">
+            <div className={`max-w-6xl mx-auto mt-8 p-6 md:p-7 rounded-3xl border ${isDark ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'}`}>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 mb-5">
+                <div>
+                  <h4 className={`text-xl font-black ${theme.text}`}>Just need editing?</h4>
+                  <p className={`text-sm ${theme.textMuted}`}>You film, we edit. No strategy or publishing. 3–5 day turnaround, 2 revision rounds.</p>
+                </div>
+                <button onClick={() => scrollToSection('contact')} className={`text-sm font-semibold inline-flex items-center gap-1.5 ${accentText} hover:underline underline-offset-4`}>Get a quote <ArrowRight size={14} /></button>
+              </div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                {[
+                  { name: 'Long-form video', price: '$400', note: 'Up to 10 minutes' },
+                  { name: 'Podcast + trailer', price: '$500', note: 'Up to 60 minutes' },
+                  { name: 'Shorts / Reels', price: '$40', note: 'Each, or 10 for $350' },
+                  { name: 'Thumbnail', price: '$60', note: 'Per design, 2 concepts' },
+                ].map((e) => (
+                  <div key={e.name} className={`p-4 rounded-2xl border ${isDark ? 'border-neutral-800 bg-black/40' : 'border-neutral-200 bg-neutral-50'}`}>
+                    <div className={`text-xs ${theme.textMuted}`}>{e.name}</div>
+                    <div className={`text-2xl font-black mt-1 ${theme.text}`}><span className={`text-xs font-bold ${theme.textMuted}`}>from </span>{e.price}</div>
+                    <div className={`text-[11px] mt-1 ${theme.textMuted}`}>{e.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
 
           <Reveal delay={300} variant="fade-up">
             <div className="max-w-6xl mx-auto mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -957,11 +999,6 @@ const App = () => {
             </div>
           </Reveal>
 
-          <Reveal delay={350} variant="fade-in">
-            <p className={`mt-8 text-center text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
-              Not ready for the full engine? <span className="font-bold">Editing + Strategy Lite from $1,200/mo</span>: editing plus a monthly content plan, without the full system.
-            </p>
-          </Reveal>
         </div>
       </section>
 
