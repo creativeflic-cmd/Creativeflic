@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ category, title, tags, result
 
           <span className="absolute top-5 left-6 text-[9px] font-semibold uppercase tracking-[0.28em] text-white/80">{category}</span>
           {shot && (
-            <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-black/70 border border-white/15 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-yellow-300">
+            <span className="absolute top-11 left-6 inline-flex items-center gap-1.5 rounded-full bg-black/70 border border-white/15 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.18em] text-yellow-300">
               <BarChart3 size={11} /> {shotLabel || 'Real YouTube Studio data'}
             </span>
           )}

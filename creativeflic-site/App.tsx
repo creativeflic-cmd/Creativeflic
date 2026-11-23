@@ -168,23 +168,22 @@ const App = () => {
   const caseStudies = [
     {
       featured: true,
-      mark: "HDC",
-      shot: "/proof/hdc-analytics.jpg",
-      thumbs: ["rZEyxn1wi-0", "NZhFjot4f60", "sk6ca6IlQ6I", "-_tKbNk7QWs"],
-      video: "rZEyxn1wi-0",
+      mark: "TUNA",
+      shot: "/proof/tuna-analytics.jpg",
+      thumbs: ["ukcyNGGO8uY", "UALcJDQyqOQ", "gVTPybaN1ro"],
+      video: "ukcyNGGO8uY",
       detail: {
-        challenge: "Hearing aids are a considered, often emotional purchase. Buyers research for weeks, and HearDirectClub needed to be the trusted voice while they did, not just another ad.",
-        built: ["Education-first channel answering the exact questions buyers search", "Long-form explainers plus a Shorts system for reach", "One pipeline feeding organic videos and ad creative", "Weekly reporting on leading indicators"],
-        outcome: ["77.9K organic views", "1.9K hours of watch time", "+168 subscribers", "Client feedback: results better than expected"]
+        challenge: "Build a faceless channel for an automotive brand that earns attention in one of YouTube's most crowded niches, without anyone on camera.",
+        built: ["Story-led scripts built for retention", "Cinematic faceless production: archival footage, motion graphics, voiceover pacing", "Titles and thumbnails tested for click-through"],
+        outcome: ["56M organic views", "136K+ subscribers", "$333K+ in channel revenue"]
       },
-      category: "Hearing Tech · Ecommerce",
-      title: "HDC: A Full YouTube Engine for a Hearing Tech Brand",
-      role: "Strategy · Scripts · Production · Publishing · Reporting",
-      quote: { text: "Results better than expected.", by: "Client feedback · first engagement" },
-      results: ["Education-first channel for a considered health purchase", "One pipeline feeding organic content and ad creative", "Weekly reporting on views, watch time and leads"],
-      link: "https://heardirectclub.com/products/nova",
-      tags: ["Ecommerce", "Health Tech", "Education"],
-      metric: { value: "77.9K", label: "Organic views · 1.9K watch hours" }
+      category: "Automotive · Faceless Channel",
+      title: "Tuna No Crust: A Faceless Channel Worth $333K+",
+      role: "Faceless Storytelling Engine",
+      results: ["56M organic views and 136K+ subscribers", "$333K+ in channel revenue", "Story-led scripts built for retention, packaging tested for CTR"],
+      link: null,
+      tags: ["Faceless", "Storytelling", "Revenue"],
+      metric: { value: "56M", label: "Organic views" }
     },
     {
       mark: "SCIATIEASE",
@@ -204,22 +203,21 @@ const App = () => {
       metric: { value: "5x", label: "Ad ROI · $5.5M per year" }
     },
     {
-      mark: "ZENTI",
-      shot: "/proof/zenti-analytics.jpg",
-      thumbs: ["nWvDvRGxbyk", "iHUEVRLSbUE", "8WPZv7iKMqk", "G_hX2oFnQS4"],
-      video: "nWvDvRGxbyk",
+      mark: "LAW",
+      thumbs: ["cOgay6dZ0NM", "QE_fv6B0n8I", "P9FE53dt3ow", "kGFSvckEFH8"],
+      video: "cOgay6dZ0NM",
       detail: {
-        challenge: "Payments software is hard to explain and easy to ignore. Zenti needed content that made a dry, complex product worth watching for business owners and partners.",
-        built: ["Profit from Payments, a payments-education channel", "Long-form explainers plus a short-form distribution system across platforms", "A fully remote production pipeline, 11 months running"],
-        outcome: ["22K+ organic views on education content", "Top Shorts reaching 1,000 to 1,500 views each", "An 11-month engagement with a 5.0 client rating"]
+        challenge: "Attorneys and tax advisors know their subject but have no time to make content. Their clients search YouTube with real questions before they call anyone.",
+        built: ["Search-led topics on estate planning, probate, guardianship and R&D tax credits", "The attorney records or sends talking points. We handle editing, motion graphics, captions, thumbnails, SEO and publishing", "A consistent house style and a dependable weekly pipeline"],
+        outcome: ["500+ explainer videos produced", "A searchable library that answers client questions around the clock"]
       },
-      category: "Fintech",
-      title: "Zenti: Making Payments Content Worth Watching",
-      role: "Content Engine + Short-Form System",
-      results: ["Complex payments product translated for camera", "Short-form distribution system across platforms", "Fully remote production pipeline"],
-      link: "https://zenti.com/",
-      tags: ["Fintech", "B2B", "Shorts"],
-      metric: { value: "22.4K", label: "Organic views · fintech made watchable" }
+      category: "Law & Tax Firms · Professional Services",
+      title: "Expert Explainer Channels That Bring In Consultations",
+      role: "Brenton C. McWilliams Law · R&D Tax Advisors",
+      results: ["Search-led legal and tax topics", "The attorney records, we handle everything else", "A dependable weekly publishing pipeline"],
+      link: "https://www.youtube.com/@thelawofficesofbrentonc.mc787",
+      tags: ["Legal", "Tax", "Education"],
+      metric: { value: "500+", label: "Explainer videos produced" }
     },
     {
       featured: true,
@@ -240,40 +238,58 @@ const App = () => {
       metric: { value: "24/7", label: "Always-on content pipeline" }
     },
     {
-      featured: true,
-      mark: "TUNA",
-      shot: "/proof/tuna-analytics.jpg",
-      thumbs: ["ukcyNGGO8uY", "UALcJDQyqOQ", "gVTPybaN1ro"],
-      video: "ukcyNGGO8uY",
+      mark: "BFM",
+      category: "Media Company · Music Documentary",
+      title: "Battle For Melody: A Music-Documentary Channel Built From Zero",
+      role: "Faceless Documentary Engine",
+      results: ["136K-view breakout, then 74K and 68K follow-ups", "Topic research on stories fans actually search", "Voiceover-led pacing, map animations and archival footage"],
+      link: "https://www.youtube.com/@Battle_For_Melody",
+      tags: ["Faceless", "Documentary", "Media"],
+      metric: { value: "136K", label: "Views on one breakout video" },
+      thumbs: ["2UuGgPNM1KM", "XTzBsYZaYXA", "7dtuegkCosI", "ux6x1jCzgRo"],
+      video: "2UuGgPNM1KM",
       detail: {
-        challenge: "Build a faceless channel for an automotive brand that earns attention in one of YouTube's most crowded niches, without anyone on camera.",
-        built: ["Story-led scripts built for retention", "Cinematic faceless production: archival footage, motion graphics, voiceover pacing", "Titles and thumbnails tested for click-through"],
-        outcome: ["56M organic views", "136K+ subscribers", "$333K+ in channel revenue"]
-      },
-      category: "Automotive · Faceless Channel",
-      title: "Tuna No Crust: A Faceless Channel Worth $333K+",
-      role: "Faceless Storytelling Engine",
-      results: ["56M organic views and 136K+ subscribers", "$333K+ in channel revenue", "Story-led scripts built for retention, packaging tested for CTR"],
-      link: null,
-      tags: ["Faceless", "Storytelling", "Revenue"],
-      metric: { value: "56M", label: "Organic views" }
+        challenge: "An Australian media company wanted a music-documentary channel from scratch: no audience, no back catalogue, and a crowded music niche.",
+        built: ["A topic system built around rock and music stories fans already search for", "Voiceover-led scripts paced for retention", "Map animations, archival footage and motion graphics in one house style"],
+        outcome: ["136K views on a breakout video", "Follow-up videos at 74K and 68K views", "A repeatable format for a channel built from zero"]
+      }
     },
     {
-      mark: "LAW",
-      thumbs: ["cOgay6dZ0NM", "QE_fv6B0n8I", "P9FE53dt3ow", "kGFSvckEFH8"],
-      video: "cOgay6dZ0NM",
+      mark: "ZENTI",
+      shot: "/proof/zenti-analytics.jpg",
+      thumbs: ["nWvDvRGxbyk", "iHUEVRLSbUE", "8WPZv7iKMqk", "G_hX2oFnQS4"],
+      video: "nWvDvRGxbyk",
       detail: {
-        challenge: "Attorneys and tax advisors know their subject but have no time to make content. Their clients search YouTube with real questions before they call anyone.",
-        built: ["Search-led topics on estate planning, probate, guardianship and R&D tax credits", "The attorney records or sends talking points. We handle editing, motion graphics, captions, thumbnails, SEO and publishing", "A consistent house style and a dependable weekly pipeline"],
-        outcome: ["500+ explainer videos produced", "A searchable library that answers client questions around the clock"]
+        challenge: "Payments software is hard to explain and easy to ignore. Zenti needed content that made a dry, complex product worth watching for business owners and partners.",
+        built: ["Profit from Payments, a payments-education channel", "Long-form explainers plus a short-form distribution system across platforms", "A fully remote production pipeline, 11 months running"],
+        outcome: ["22K+ organic views on education content", "Top Shorts reaching 1,000 to 1,500 views each", "An 11-month engagement with a 5.0 client rating"]
       },
-      category: "Law & Tax Firms · Professional Services",
-      title: "Expert Explainer Channels That Bring In Consultations",
-      role: "Brenton C. McWilliams Law · R&D Tax Advisors",
-      results: ["Search-led legal and tax topics", "The attorney records, we handle everything else", "A dependable weekly publishing pipeline"],
-      link: "https://www.youtube.com/@thelawofficesofbrentonc.mc787",
-      tags: ["Legal", "Tax", "Education"],
-      metric: { value: "500+", label: "Explainer videos produced" }
+      category: "Fintech",
+      title: "Zenti: Making Payments Content Worth Watching",
+      role: "Content Engine + Short-Form System",
+      results: ["Complex payments product translated for camera", "Short-form distribution system across platforms", "Fully remote production pipeline"],
+      link: "https://zenti.com/",
+      tags: ["Fintech", "B2B", "Shorts"],
+      metric: { value: "22.4K", label: "Organic views · fintech made watchable" }
+    },
+    {
+      mark: "HDC",
+      shot: "/proof/hdc-analytics.jpg",
+      thumbs: ["rZEyxn1wi-0", "NZhFjot4f60", "sk6ca6IlQ6I", "-_tKbNk7QWs"],
+      video: "rZEyxn1wi-0",
+      detail: {
+        challenge: "Hearing aids are a considered, often emotional purchase. Buyers research for weeks, and HearDirectClub needed to be the trusted voice while they did, not just another ad.",
+        built: ["Education-first channel answering the exact questions buyers search", "Long-form explainers plus a Shorts system for reach", "One pipeline feeding organic videos and ad creative", "Weekly reporting on leading indicators"],
+        outcome: ["77.9K organic views", "1.9K hours of watch time", "+168 subscribers", "Client feedback: results better than expected"]
+      },
+      category: "Hearing Tech · Ecommerce",
+      title: "HDC: A Full YouTube Engine for a Hearing Tech Brand",
+      role: "Strategy · Scripts · Production · Publishing · Reporting",
+      quote: { text: "Results better than expected.", by: "Client feedback · first engagement" },
+      results: ["Education-first channel for a considered health purchase", "One pipeline feeding organic content and ad creative", "Weekly reporting on views, watch time and leads"],
+      link: "https://heardirectclub.com/products/nova",
+      tags: ["Ecommerce", "Health Tech", "Education"],
+      metric: { value: "77.9K", label: "Organic views · 1.9K watch hours" }
     }
   ];
 
