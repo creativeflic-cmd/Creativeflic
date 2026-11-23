@@ -1,3 +1,4 @@
+import { LEAD_FORM_URL } from '../config';
 import React, { useState } from 'react';
 import { X, ArrowRight } from 'lucide-react';
 
@@ -16,7 +17,6 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ brandBlue, onSuccess, isDark }) => {
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyfpxNdT5sPtoIK_E0q6CUtIHQ3be2pp7XUBWIo61omRUVCm1PkQHt3w5sYkpeEl3V-g/exec';
 
   const [formData, setFormData] = useState({
     NAME: '',
@@ -59,7 +59,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ brandBlue, onSuccess, isDark 
     dataToSend.append('Message', `Website/Channel: ${formData.URL}\n\n${formData.Message}`);
 
     try {
-      await fetch(SCRIPT_URL, {
+      await fetch(LEAD_FORM_URL, {
         method: 'POST',
         body: dataToSend,
         mode: 'no-cors'
