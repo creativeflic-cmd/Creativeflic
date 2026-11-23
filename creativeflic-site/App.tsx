@@ -134,7 +134,7 @@ const App = () => {
 
   useEffect(() => {
     if (loading) return;
-    const ids = ['home', 'work', 'samples', 'testimonials', 'engine', 'how', 'pricing', 'fit', 'faq', 'contact'];
+    const ids = ['home', 'work', 'samples', 'testimonials', 'how', 'pricing', 'fit', 'faq', 'contact'];
     const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) setActiveSection((e.target as HTMLElement).id); }),
       { rootMargin: '-45% 0px -50% 0px' }
@@ -159,7 +159,7 @@ const App = () => {
 
   const navItems: { label: string; id: string }[] = [
     { label: 'Results', id: 'work' },
-    { label: 'The System', id: 'engine' },
+    { label: 'How It Works', id: 'how' },
     { label: 'Pricing', id: 'pricing' },
     { label: 'Who It’s For', id: 'fit' },
     { label: 'FAQ', id: 'faq' },
@@ -461,6 +461,7 @@ const App = () => {
   const [sampleTab, setSampleTab] = useState(0);
   const [openCase, setOpenCase] = useState<number | null>(null);
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [showAllCases, setShowAllCases] = useState(false);
 
   const isLawPage = typeof window !== 'undefined' && window.location.pathname.replace(/\/+$/, '') === '/law-firms';
 
@@ -660,9 +661,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* TICKER */}
-      <InfiniteTicker isDark={isDark} />
-
       {/* WORK / PROOF SECTION */}
       <section id="work" className={`py-28 relative overflow-hidden ${theme.sectionBg}`}>
         <Parallax speed={0.15} className="absolute -top-32 -right-40 pointer-events-none">
@@ -686,12 +684,19 @@ const App = () => {
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((project, index) => (
+            {caseStudies.slice(0, showAllCases ? caseStudies.length : 4).map((project, index) => (
               <Reveal key={index} delay={index * 120} variant="fade-up" className={project.featured ? 'md:col-span-2' : ''}>
                 <ProjectCard {...project} isDark={isDark} onOpen={() => { setOpenCase(index); track('case_study_open', { case: project.mark }); }} />
               </Reveal>
             ))}
           </div>
+          {!showAllCases && (
+            <div className="text-center mt-10">
+              <button type="button" onClick={() => setShowAllCases(true)} className={`px-7 py-3 rounded-full border font-semibold text-sm transition-all duration-300 ${isDark ? 'border-white/15 hover:border-white/40 text-neutral-300 hover:text-white' : 'border-black/15 hover:border-black/40 text-neutral-700 hover:text-black'}`}>
+                See all {caseStudies.length} case studies
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -776,7 +781,7 @@ const App = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {reviews.slice(0, showAllReviews ? reviews.length : 6).map((r, i) => (
+              {reviews.slice(0, showAllReviews ? reviews.length : 3).map((r, i) => (
                 <Reveal key={i} delay={(i % 3) * 80} variant="fade-up" className="h-full">
                   <div className={`p-6 rounded-2xl border h-full flex flex-col ${isDark ? 'bg-neutral-900/60 border-neutral-800' : 'bg-white border-neutral-200 shadow-sm'}`}>
                     <div className="flex gap-0.5 mb-3">
@@ -799,83 +804,18 @@ const App = () => {
         </div>
       </section>
 
-      {/* ENGINE SECTION */}
-      <section id="engine" className={`py-24 relative overflow-hidden ${isDark ? 'bg-black' : 'bg-white'}`}>
-        <div className="container mx-auto px-6 relative z-10">
-          <Reveal variant="creative-up">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className={`flex items-center justify-center gap-4 mb-5`}>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>04 · The Revenue System</h2>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-              </div>
-              <WordReveal as="h3" text="Not an Editing Agency. A Revenue System." className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
-              <p className={theme.textMuted}>
-                Editing is a commodity. Production without strategy is a churn machine. We sell neither. We install the full acquisition loop and own every step, so nothing falls between vendors.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {engineSteps.map((step, i) => (
-              <Reveal key={i} delay={i * 100} className="h-full" variant="scale-up">
-                <div
-                  className={`p-6 rounded-3xl h-full transition-all duration-300 hover:-translate-y-2 group spotlight-card ${theme.spotlightCard}`}
-                  onMouseMove={handleSpotlightMove}
-                >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white ${theme.iconBg}`}>
-                    {step.icon}
-                  </div>
-                  <div className={`text-xs font-black mb-2 ${kicker}`}>0{i + 1}</div>
-                  <h4 className={`text-lg font-bold mb-3 relative z-10 ${theme.text}`}>{step.title}</h4>
-                  <p className={`text-sm relative z-10 leading-relaxed ${theme.textMuted}`}>{step.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={200} variant="fade-up">
-            <div className={`mt-12 max-w-3xl mx-auto text-center p-6 rounded-3xl border ${isDark ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-neutral-50'}`}>
-              <p className={`text-sm ${theme.textMuted}`}>
-                <span className={`font-bold ${theme.text}`}>We run our own channels too.</span> Our internal media operation is our R&D lab. Every format we sell has been tested on our own dashboard first.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* WORK DEMO: the system in motion */}
-      <section className={`py-24 overflow-hidden ${isDark ? 'bg-black' : 'bg-neutral-50'}`}>
-        <div className="container mx-auto px-6 mb-12">
-          <Reveal variant="fade-in">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className={`flex items-center justify-center gap-4 mb-5`}>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>05 · Inside The Engine Room</h2>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-              </div>
-              <WordReveal as="h3" text="Watch The System Work" className="text-4xl md:text-5xl font-bold mb-6" stagger={60} />
-              <p className={theme.textMuted}>
-                Every week, for every client: research becomes scripts, scripts become videos, videos become dashboards. This is the machine mid-flight.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-        <WorkDemo isDark={isDark} />
-      </section>
-
-      {/* HOW IT WORKS */}
+      {/* HOW IT WORKS (system, steps and timeline in one) */}
       <section id="how" className={`py-24 ${isDark ? 'bg-black' : 'bg-white'}`}>
         <div className="container mx-auto px-6">
           <Reveal variant="creative-up">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <div className={`flex items-center justify-center gap-4 mb-5`}>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>06 · How It Works</h2>
+                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>04 · How It Works</h2>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
               </div>
               <WordReveal as="h3" text="Three Steps. Almost None of Them Yours." className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
-              <p className={theme.textMuted}>You bring the expertise. We turn it into a channel that sells.</p>
+              <p className={theme.textMuted}>Not an editing agency. One team owns strategy, scripts, production, publishing and reporting, so nothing falls between vendors.</p>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -893,59 +833,32 @@ const App = () => {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* MILESTONE CURVE */}
-      <section id="curve" className={`py-24 ${theme.sectionBg}`}>
-        <div className="container mx-auto px-6">
-          <Reveal variant="creative-up">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className={`flex items-center justify-center gap-4 mb-5`}>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>07 · No Surprises</h2>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
+          <Reveal delay={150} variant="fade-up">
+            <div className="max-w-5xl mx-auto mt-10">
+              <div className={`text-center text-[10px] font-bold uppercase tracking-[0.25em] mb-4 ${theme.textMuted}`}>Everything included</div>
+              <div className="flex flex-wrap justify-center gap-3">
+                {engineSteps.map((step) => (
+                  <div key={step.title} className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border text-sm ${isDark ? 'border-neutral-800 bg-neutral-900/60' : 'border-neutral-200 bg-neutral-50'}`} title={step.desc}>
+                    <span className={accentText}>{React.cloneElement(step.icon as React.ReactElement<{ size?: number }>, { size: 16 })}</span>
+                    <span className={`font-semibold ${theme.text}`}>{step.title}</span>
+                  </div>
+                ))}
               </div>
-              <WordReveal as="h3" text="Exactly What Happens, Month by Month" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
-              <p className={theme.textMuted}>
-                Your paid CAC rises every quarter. YouTube does the opposite: it compounds, it does not spike. Anyone promising sales in week two is lying to you. Here’s the real curve, the same one we put in every proposal.
-              </p>
             </div>
           </Reveal>
 
-          <div className="relative max-w-6xl mx-auto">
-            {/* Connecting line (desktop) */}
-            <div className={`hidden lg:block absolute top-8 left-[12%] right-[12%] h-0.5 ${isDark ? 'bg-gradient-to-r from-neutral-800 via-blue-700 to-yellow-400/80' : 'bg-gradient-to-r from-neutral-300 via-blue-500 to-yellow-500'}`}>
-              <div className="curve-dot absolute -top-[3px] w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.9)]"></div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {milestones.map((m, i) => (
-                <Reveal key={i} delay={i * 120} variant="fade-up" className="h-full">
-                  <div className={`relative p-6 rounded-3xl border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isDark ? 'bg-neutral-900 border-neutral-800 hover:border-blue-500' : 'bg-white border-neutral-300 hover:border-blue-500'}`}>
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-5 font-black text-lg relative z-10 ${i === 3 ? 'bg-yellow-400 text-black shadow-[0_0_25px_rgba(250,204,21,0.45)]' : isDark ? 'bg-blue-950 text-blue-400 border border-blue-900' : 'bg-blue-50 text-blue-700 border border-blue-200'}`}>
-                      {i === 3 ? <Rocket size={24} /> : i + 1}
-                    </div>
-                    <div className={`text-xs font-black uppercase tracking-widest mb-2 ${kicker}`}>{m.phase}</div>
-                    <h4 className={`text-lg font-bold mb-4 ${theme.text}`}>{m.title}</h4>
-                    <ul className="space-y-2">
-                      {m.points.map((p, j) => (
-                        <li key={j} className={`flex items-start gap-2 text-xs leading-relaxed ${theme.textMuted}`}>
-                          <TrendingUp size={12} className="text-green-500 mt-0.5 shrink-0" /> {p}
-                        </li>
-                      ))}
-                    </ul>
+          <Reveal delay={250} variant="fade-up">
+            <div className={`max-w-5xl mx-auto mt-10 p-6 rounded-3xl border ${isDark ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-neutral-50'}`}>
+              <div className={`text-center text-[10px] font-bold uppercase tracking-[0.25em] mb-5 ${theme.textMuted}`}>What to expect · YouTube compounds, it doesn’t spike</div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {milestones.map((m, i) => (
+                  <div key={i} className="text-center">
+                    <div className={`text-[10px] font-black uppercase tracking-widest mb-1 ${kicker}`}>{m.phase}</div>
+                    <div className={`text-sm font-bold ${theme.text}`}>{m.title}</div>
                   </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          <Reveal delay={300} variant="fade-up">
-            <div className="mt-12 text-center">
-              <p className={`text-sm max-w-2xl mx-auto ${theme.textMuted}`}>
-                You get a <span className={`font-bold ${theme.text}`}>weekly Loom update and a live dashboard</span> from day one: impressions, click-through rate, retention, watch time and subscriber growth, plus the enquiries your videos bring in.
-              </p>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
@@ -961,7 +874,7 @@ const App = () => {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className={`flex items-center justify-center gap-4 mb-5`}>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>08 · Transparent Pricing</h2>
+                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>05 · Transparent Pricing</h2>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
               </div>
               <WordReveal as="h3" text="The Price of a Freelancer. The Standard of a Growth Agency." className="text-4xl md:text-5xl font-bold mb-6" stagger={45} />
@@ -1025,63 +938,30 @@ const App = () => {
             </Reveal>
           </div>
 
+          <Reveal delay={300} variant="fade-up">
+            <div className="max-w-6xl mx-auto mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { icon: <Key size={18} />, title: 'You own everything', desc: 'Channel, content and data are yours from day one.' },
+                { icon: <ShieldCheck size={18} />, title: 'Milestone guarantee', desc: 'Miss the agreed day-90 targets and month 4 is 50% off.' },
+                { icon: <LineChart size={18} />, title: 'Weekly reporting', desc: 'A Loom update and a live dashboard every week.' },
+                { icon: <PlayCircle size={18} />, title: 'Delivery SLA', desc: 'Miss volume or deadlines and you can walk at day 90.' },
+              ].map((g) => (
+                <div key={g.title} className={`flex items-start gap-3 p-4 rounded-2xl border ${isDark ? 'border-neutral-800 bg-neutral-900/50' : 'border-neutral-200 bg-white'}`}>
+                  <span className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${theme.iconBg}`}>{g.icon}</span>
+                  <div>
+                    <div className={`text-sm font-bold ${theme.text}`}>{g.title}</div>
+                    <div className={`text-xs leading-relaxed mt-0.5 ${theme.textMuted}`}>{g.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
 
           <Reveal delay={350} variant="fade-in">
             <p className={`mt-8 text-center text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
               Not ready for the full engine? <span className="font-bold">Editing + Strategy Lite from $1,200/mo</span>: editing plus a monthly content plan, without the full system.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* TRUST / GUARANTEES */}
-      <section className={`py-24 ${theme.sectionBg}`}>
-        <div className="container mx-auto px-6">
-          <Reveal variant="creative-up">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className={`flex items-center justify-center gap-4 mb-5`}>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>09 · Zero Fine Print</h2>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-              </div>
-              <WordReveal as="h3" text="Built to Be the Safest Bet You Make" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
-            </div>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                icon: <Key size={26} />,
-                title: 'You Own Everything',
-                desc: 'The channel, the content, the data: 100% yours, outright, from day one. Many agencies bury ownership in fine print. We make it the headline.'
-              },
-              {
-                icon: <ShieldCheck size={26} />,
-                title: 'Milestone Guarantee',
-                desc: 'If agreed leading indicators aren’t hit by day 90, month 4 is 50% off. We never guarantee vanity subs. We guarantee the process that produces revenue.'
-              },
-              {
-                icon: <LineChart size={26} />,
-                title: 'Radical Reporting',
-                desc: 'Weekly async Loom + a live dashboard. You will never wonder what you are paying for. You watch the leading indicators move.'
-              },
-              {
-                icon: <PlayCircle size={26} />,
-                title: 'Delivery SLA',
-                desc: 'Volume and deadlines are contractual. Miss them and you can walk at day 90. That is our risk, not yours.'
-              }
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 100} variant="fade-up" className="h-full">
-                <div className={`p-7 rounded-3xl border h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${isDark ? 'bg-neutral-900 border-neutral-800 hover:border-blue-500/50' : 'bg-white border-neutral-300 hover:border-blue-600'}`}>
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${isDark ? 'bg-blue-600/10 text-blue-400' : 'bg-blue-100 text-blue-700'}`}>
-                    {item.icon}
-                  </div>
-                  <h4 className={`text-lg font-bold mb-3 ${theme.text}`}>{item.title}</h4>
-                  <p className={`text-sm leading-relaxed ${theme.textMuted}`}>{item.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1092,7 +972,7 @@ const App = () => {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className={`flex items-center justify-center gap-4 mb-5`}>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>10 · We Are Selective</h2>
+                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>06 · Who It’s For</h2>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
               </div>
               <WordReveal as="h3" text="This Only Works for the Right Brand" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
@@ -1159,24 +1039,12 @@ const App = () => {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* FAQ */}
-      <section id="faq" className={`py-24 ${theme.sectionBg}`}>
-        <div className="container mx-auto px-6">
-          <Reveal variant="creative-up">
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <div className={`flex items-center justify-center gap-4 mb-5`}>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-                <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>11 · Before We Talk</h2>
-                <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
-              </div>
-              <WordReveal as="h3" text="Good Questions. Straight Answers." className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
-              <p className={theme.textMuted}>The things founders and partners ask us most.</p>
-            </div>
-          </Reveal>
-          <div className="max-w-3xl mx-auto space-y-3">
+          {/* FAQ */}
+          <div id="faq" className="max-w-3xl mx-auto mt-20 scroll-mt-28">
+            <h3 className={`text-3xl md:text-4xl font-bold text-center mb-3 ${theme.text}`}>Good Questions. Straight Answers.</h3>
+            <p className={`text-center mb-8 ${theme.textMuted}`}>The things founders and partners ask us most.</p>
+            <div className="space-y-3">
             {faqs.map((f, i) => {
               const open = openFaq === i;
               return (
@@ -1190,47 +1058,7 @@ const App = () => {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* BIG AUDIT CTA */}
-      <section id="big-idea" className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-blue-600 py-32 glow-blue">
-        <SectionParticles isDark={isDark} forceColor="rgba(255,255,255,0.6)" />
-
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <Reveal delay={0} variant="creative-up">
-            <h2 className="text-lg md:text-2xl font-bold uppercase tracking-wider text-white/90 mb-6">
-              Free · 10 Minutes · No Call Required
-            </h2>
-          </Reveal>
-          <WordReveal
-            as="h3"
-            text="Your Free YouTube Revenue Audit"
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tighter mb-8 max-w-4xl mx-auto"
-            delay={100}
-            stagger={80}
-          />
-          <Reveal delay={250} variant="fade-up">
-            <div className="max-w-2xl mx-auto mb-10">
-              <ul className="text-white/90 text-sm md:text-base space-y-3 text-left inline-block">
-                {[
-                  'The 20 keywords your buyers actually search on YouTube',
-                  'Which competitor channels are winning your buyers’ attention, and why',
-                  'The search demand your brand is missing today',
-                  'The first 5 videos your brand should make'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-white mt-0.5 shrink-0" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-          <Reveal delay={350} variant="scale-up">
-            <button onClick={() => scrollToSection('contact')} className="btn-sheen inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-blue-700 bg-white px-10 py-5 rounded-full shadow-xl hover:scale-105 active:scale-95 hover:bg-blue-50 transition-all glow-white">
-              Claim My Free Audit <ArrowRight size={18} />
-            </button>
-          </Reveal>
+          </div>
         </div>
       </section>
 
