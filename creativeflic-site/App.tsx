@@ -889,6 +889,7 @@ const App = () => {
                 Start with a Pilot <ArrowRight size={16} />
               </button>
             </div>
+            <p className={`max-w-6xl mx-auto -mt-5 mb-8 text-center text-xs ${theme.textMuted}`}>We take on 3 new clients a month, so every channel gets senior attention.</p>
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
@@ -1003,7 +1004,7 @@ const App = () => {
               </div>
               <WordReveal as="h3" text="Is This a Fit for Your Business?" className="text-4xl md:text-5xl font-bold mb-6" stagger={50} />
               <p className={theme.textMuted}>
-                We work with a few clients at a time, so every channel gets senior attention. Here’s an honest filter.
+                We take on 3 new clients a month, so every channel gets senior attention. Here’s an honest filter.
               </p>
             </div>
           </Reveal>
@@ -1093,6 +1094,7 @@ const App = () => {
         <div className="container mx-auto px-6 relative z-10">
           <Reveal variant="fade-up">
             <ContactForm brandBlue={brandBlue} onSuccess={handleSuccess} isDark={isDark} />
+            <p className={`text-center mt-6 text-xs ${theme.textMuted}`}>We take on 3 new clients a month. Audits are free and first come, first served.</p>
             {BOOKING_URL && (
               <p className={`text-center mt-8 text-sm ${theme.textMuted}`}>
                 Prefer to talk? <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => track('book_call_click', { page: 'home' })} className={`font-semibold hover:underline ${accentText}`}>Book a 20-minute call</a>

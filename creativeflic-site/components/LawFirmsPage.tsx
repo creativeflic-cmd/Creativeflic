@@ -193,6 +193,7 @@ const LawFirmsPage: React.FC = () => {
       <section id="audit" className="py-24 bg-gradient-to-b from-[#0E2240] to-[#08162B]">
         <div className="container mx-auto px-6">
           <ContactForm brandBlue="bg-blue-600" onSuccess={() => { track('generate_lead', { form: 'free_audit', page: 'law_firms' }); markLeadSent(); setSuccess(true); }} isDark={isDark} />
+          <p className="text-center mt-6 text-xs text-[#8FA3BF]">We take on 3 new firms a month. Audits are free and first come, first served.</p>
           {BOOKING_URL && (
             <p className="text-center mt-8 text-sm text-neutral-400">
               Prefer to talk? <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => track('book_call_click', { page: 'law_firms' })} className="text-[#D4B06A] font-semibold hover:underline">Book a 20-minute call</a>
