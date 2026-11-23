@@ -661,15 +661,15 @@ const App = () => {
         </Parallax>
         <div className="container mx-auto px-6 relative z-10">
           <Reveal variant="creative-up">
-            <div className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <div>
-                <div className={`flex items-center justify-start gap-4 mb-5`}>
+                <div className={`flex items-center justify-center gap-4 mb-5`}>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
                 <h2 className={`${kicker} font-semibold uppercase tracking-[0.3em] text-xs`}>01 · Proof, Not Promises</h2>
                 <span className={`h-px w-8 ${isDark ? 'bg-yellow-400/50' : 'bg-yellow-500/60'}`}></span>
               </div>
                 <WordReveal as="h3" text="Real Systems. Real ROI." className="text-4xl md:text-5xl font-bold mb-3" stagger={50} />
-                <p className={`${theme.textMuted} max-w-xl`}>
+                <p className={`${theme.textMuted} max-w-xl mx-auto`}>
                   Every client runs the same machine, strategy to publishing, and every engagement is judged on results.
                 </p>
               </div>
