@@ -3,7 +3,7 @@ import React from 'react';
 const stats = [
     { value: '$5.5M', label: 'Client Revenue Scaled' },
     { value: '100M+', label: 'Organic Views Generated' },
-    { value: '136K+', label: 'Subscribers on One Channel' },
+    { value: '6M+', label: 'Combined Subscribers on Client Channels' },
     { value: '1M+', label: 'View Videos Produced' },
 ];
 

@@ -637,7 +637,7 @@ const App = () => {
                 {[
                   { end: 5.5, decimals: 1, prefix: '$', suffix: 'M', label: 'Client revenue scaled' },
                   { end: 100, decimals: 0, prefix: '', suffix: 'M+', label: 'Organic views generated' },
-                  { end: 136, decimals: 0, prefix: '', suffix: 'K+', label: 'Subscribers on one channel' },
+                  { end: 6, decimals: 0, prefix: '', suffix: 'M+', label: 'Combined subscribers on client channels' },
                 ].map((s, i) => (
                   <div key={i} className={`px-4 ${i > 0 ? (isDark ? 'border-l border-white/10' : 'border-l border-black/10') : ''}`}>
                     <div className={`w-5 h-0.5 mx-auto mb-3 ${isDark ? 'bg-yellow-400/80' : 'bg-yellow-500'}`}></div>
