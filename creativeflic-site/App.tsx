@@ -877,40 +877,23 @@ const App = () => {
             </div>
           </Reveal>
 
-          {/* Pilot: the low-risk first step */}
-          <Reveal variant="fade-up">
-            <div className={`max-w-6xl mx-auto mb-8 p-6 md:p-7 rounded-3xl border flex flex-col md:flex-row md:items-center gap-5 ${isDark ? 'border-yellow-400/30 bg-yellow-400/[0.04]' : 'border-yellow-500/40 bg-yellow-50'}`}>
-              <div className="flex-grow">
-                <div className={`text-xs font-black uppercase tracking-widest mb-1.5 ${kicker}`}>Not sure yet? · 30-day trial · One-time</div>
-                <h4 className={`text-xl md:text-2xl font-black mb-1.5 ${theme.text}`}>Try the Revenue Engine for 30 days: $1,500</h4>
-                <p className={`text-sm ${theme.textMuted}`}>Your channel strategy plus 2 done-for-you videos. You film, we script, edit and publish. <span className={`font-semibold ${theme.text}`}>The $1,500 is credited to your first month on any plan.</span></p>
-              </div>
-              <button onClick={() => scrollToSection('contact')} className={`btn-sheen shrink-0 px-7 py-3.5 ${brandBlue} text-white font-bold rounded-full hover:bg-blue-500 transition-all text-sm inline-flex items-center gap-2`}>
-                Start the 30-day trial <ArrowRight size={16} />
-              </button>
-            </div>
-            <p className={`max-w-6xl mx-auto -mt-5 mb-8 text-center text-xs ${theme.textMuted}`}>We take on 3 new clients a month, so every channel gets senior attention.</p>
-          </Reveal>
-
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
             <Reveal delay={0} variant="scale-up" className="h-full">
-              <div className={`p-8 rounded-3xl h-full flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 spotlight-card border ${theme.spotlightCard}`} onMouseMove={handleSpotlightMove}>
-                
-                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Editing plan</div>
-                <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Starter</h4>
-                <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$2,000<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
-                <div className={`text-xs rounded-xl border px-3.5 py-2.5 mb-5 space-y-1 ${isDark ? 'border-neutral-800 bg-black/30' : 'border-neutral-200 bg-neutral-50'}`}>
-                  <div><span className={`font-bold ${theme.text}`}>You do:</span> <span className={theme.textMuted}>write, film and upload your videos</span></div>
-                  <div><span className={`font-bold ${theme.text}`}>We do:</span> <span className={theme.textMuted}>edit them, design thumbnails, and plan your topics</span></div>
-                </div>
-                <p className={`text-sm mb-6 ${theme.textMuted}`}>Best if you already run your channel and want a reliable editing team with a monthly plan.</p>
+              <div className={`p-8 rounded-3xl h-full flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-2 spotlight-card border ${isDark ? 'border-yellow-400/30 bg-yellow-400/[0.04]' : 'border-yellow-500/40 bg-yellow-50'}`} onMouseMove={handleSpotlightMove}>
+                <div className={`text-xs font-black uppercase tracking-widest mb-2 ${kicker}`}>Start here · 30 days</div>
+                <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Pilot</h4>
+                <div className={`text-3xl font-black mb-6 ${theme.text}`}>$1,500<span className={`text-base font-bold ${theme.textMuted}`}> one-time</span></div>
+                <p className={`text-sm font-semibold mb-6 ${theme.text}`}>You just film. We do the rest.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['About 4 long-form videos a month', 'Monthly topic and title plan', 'Edits in your channel style', 'A thumbnail for every video', 'Loom updates and support'].map((item, i) => (
+                  {['Channel strategy and topic plan', '2 videos scripted, edited and published', 'Thumbnails and titles', 'Credited to your first month if you stay'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
+                      <CheckCircle2 size={16} className="text-yellow-400 mt-0.5 shrink-0" /> {item}
                     </li>
                   ))}
                 </ul>
+                <button onClick={() => scrollToSection('contact')} className={`btn-sheen mt-8 w-full py-3.5 ${brandBlue} text-white font-bold rounded-full hover:bg-blue-500 transition-all text-sm inline-flex items-center justify-center gap-2`}>
+                  Start the Pilot <ArrowRight size={16} />
+                </button>
               </div>
             </Reveal>
             <Reveal delay={100} variant="scale-up" className="h-full">
@@ -919,13 +902,9 @@ const App = () => {
                 <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Done for you</div>
                 <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Revenue Engine</h4>
                 <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$3,500<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
-                <div className={`text-xs rounded-xl border px-3.5 py-2.5 mb-5 space-y-1 ${isDark ? 'border-neutral-800 bg-black/30' : 'border-neutral-200 bg-neutral-50'}`}>
-                  <div><span className={`font-bold ${theme.text}`}>You do:</span> <span className={theme.textMuted}>just film (about 2–3 hours a week)</span></div>
-                  <div><span className={`font-bold ${theme.text}`}>We do:</span> <span className={theme.textMuted}>strategy, scripts, editing, publishing and reporting</span></div>
-                </div>
-                <p className={`text-sm mb-6 ${theme.textMuted}`}>Best if you want YouTube to bring you clients without running it yourself.</p>
+                <p className={`text-sm font-semibold mb-6 ${theme.text}`}>You just film, about 2–3 hours a week.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['4 long-form videos + 8 shorts monthly', 'Strategy, scripts and on-camera guidance', 'Thumbnails, titles & YouTube SEO', 'Publishing & full channel management', 'Weekly reporting + monthly strategy call'].map((item, i) => (
+                  {['4 long-form videos + 8 shorts monthly', 'Strategy and scripts', 'Thumbnails, titles & YouTube SEO', 'Publishing and channel management', 'Weekly reporting + monthly strategy call'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>
@@ -939,13 +918,9 @@ const App = () => {
                 <div className={`text-xs font-black uppercase tracking-widest mb-2 ${accentText}`}>Done for you, everywhere</div>
                 <h4 className={`text-2xl font-black mb-1 ${theme.text}`}>Growth Engine</h4>
                 <div className={`text-3xl font-black mb-6 ${theme.text}`}><span className={`text-base font-bold ${theme.textMuted}`}>From </span>$5,500<span className={`text-base font-bold ${theme.textMuted}`}>/mo</span></div>
-                <div className={`text-xs rounded-xl border px-3.5 py-2.5 mb-5 space-y-1 ${isDark ? 'border-neutral-800 bg-black/30' : 'border-neutral-200 bg-neutral-50'}`}>
-                  <div><span className={`font-bold ${theme.text}`}>You do:</span> <span className={theme.textMuted}>just film</span></div>
-                  <div><span className={`font-bold ${theme.text}`}>We do:</span> <span className={theme.textMuted}>everything in Revenue Engine, plus LinkedIn, Instagram, TikTok and ads</span></div>
-                </div>
-                <p className={`text-sm mb-6 ${theme.textMuted}`}>Best if YouTube is working and you want it on every platform. On top of Revenue Engine:</p>
+                <p className={`text-sm font-semibold mb-6 ${theme.text}`}>You just film. We take it everywhere.</p>
                 <ul className={`space-y-3 text-sm flex-grow ${theme.textMuted}`}>
-                  {['Repurposing pack: LinkedIn, IG and TikTok cuts', 'Ad-creative versions of winning videos', 'YouTube Ads setup and management (ad spend billed separately)', 'Priority production queue'].map((item, i) => (
+                  {['Everything in Revenue Engine', 'LinkedIn, IG and TikTok cuts', 'Ad-creative versions of winning videos', 'YouTube Ads management (ad spend extra)', 'Priority production queue'].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" /> {item}
                     </li>
@@ -954,6 +929,7 @@ const App = () => {
               </div>
             </Reveal>
           </div>
+          <p className={`max-w-6xl mx-auto mt-6 text-center text-xs ${theme.textMuted}`}>We take on 3 new clients a month, so every channel gets senior attention.</p>
 
           {/* Editing only */}
           <Reveal delay={200} variant="fade-up">
@@ -961,7 +937,7 @@ const App = () => {
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-2 mb-5">
                 <div>
                   <h4 className={`text-xl font-black ${theme.text}`}>Just need one video edited?</h4>
-                  <p className={`text-sm ${theme.textMuted}`}>Pay per video, no monthly plan. You script, film and upload; we edit. 3–5 day turnaround, 2 revision rounds.</p>
+                  <p className={`text-sm ${theme.textMuted}`}>Pay per video, no monthly plan. You script, film and upload; we edit. 3–5 day turnaround, 2 revision rounds. 4+ videos a month? Ask for a monthly rate.</p>
                 </div>
                 <button onClick={() => scrollToSection('contact')} className={`text-sm font-semibold inline-flex items-center gap-1.5 ${accentText} hover:underline underline-offset-4`}>Get a quote <ArrowRight size={14} /></button>
               </div>
