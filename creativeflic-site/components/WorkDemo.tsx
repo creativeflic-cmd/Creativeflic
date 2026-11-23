@@ -9,7 +9,7 @@ const WorkDemo = ({ isDark }: { isDark: boolean }) => {
   const cardBase = isDark
     ? 'bg-white/[0.02] border-white/8'
     : 'bg-white border-neutral-200';
-  const label = isDark ? 'text-neutral-500' : 'text-neutral-500';
+  const label = isDark ? 'text-neutral-400' : 'text-neutral-500';
   const soft = isDark ? 'bg-white/8' : 'bg-neutral-200';
   const softer = isDark ? 'bg-white/[0.04]' : 'bg-neutral-100';
   const mono = isDark ? 'text-neutral-400' : 'text-neutral-600';
@@ -19,7 +19,7 @@ const WorkDemo = ({ isDark }: { isDark: boolean }) => {
       <span className={`text-[10px] font-semibold uppercase tracking-[0.25em] ${label}`}>
         <span className={isDark ? 'text-yellow-400/90' : 'text-yellow-600'}>{n}</span>&nbsp;&nbsp;{name}
       </span>
-      <span className={isDark ? 'text-neutral-600' : 'text-neutral-400'}>{icon}</span>
+      <span className={isDark ? 'text-neutral-400' : 'text-neutral-400'}>{icon}</span>
     </div>
   );
 
@@ -60,7 +60,7 @@ const WorkDemo = ({ isDark }: { isDark: boolean }) => {
           <span className={`text-sm font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>A</span>
         </div>
         <div className={`flex-1 aspect-video rounded-lg border border-transparent flex items-center justify-center ${softer}`}>
-          <span className={isDark ? 'text-neutral-600 text-sm font-bold' : 'text-neutral-400 text-sm font-bold'}>B</span>
+          <span className={isDark ? 'text-neutral-400 text-sm font-bold' : 'text-neutral-400 text-sm font-bold'}>B</span>
         </div>
       </div>
       <div className={`text-[10px] font-mono mt-5 ${mono}`}>three concepts · one winner</div>

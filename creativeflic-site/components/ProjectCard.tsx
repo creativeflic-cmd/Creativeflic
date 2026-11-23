@@ -35,7 +35,7 @@ export interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ category, title, tags, results, role, link, isDark, mark, metric, quote, featured, thumbs, shot, shotLabel, onOpen }) => {
   const cardBg = isDark ? 'bg-neutral-950 border-white/8' : 'bg-white border-neutral-200 shadow-sm';
   const textColor = isDark ? 'text-white' : 'text-neutral-900';
-  const descColor = isDark ? 'text-neutral-500' : 'text-neutral-600';
+  const descColor = isDark ? 'text-neutral-400' : 'text-neutral-600';
   const grid = (thumbs || []).slice(0, 4);
 
   return (
@@ -112,14 +112,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ category, title, tags, result
                 Read the case study <ArrowRight size={12} />
               </button>
             ) : (
-              <span className={`text-[10px] uppercase tracking-[0.15em] ${isDark ? 'text-neutral-600' : 'text-neutral-500'}`}>{tags.join(' · ')}</span>
+              <span className={`text-[10px] uppercase tracking-[0.15em] ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>{tags.join(' · ')}</span>
             )}
             {link ? (
               <a href={link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider transition-colors ${isDark ? 'text-neutral-400 hover:text-white' : 'text-neutral-500 hover:text-black'}`}>
                 Visit <ExternalLink size={11} />
               </a>
             ) : (
-              <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider ${isDark ? 'text-neutral-600' : 'text-neutral-400'}`} title="Confidential Client">
+              <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider ${isDark ? 'text-neutral-400' : 'text-neutral-400'}`} title="Confidential Client">
                 Private <Award size={11} />
               </span>
             )}

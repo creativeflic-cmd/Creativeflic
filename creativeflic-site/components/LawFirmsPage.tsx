@@ -17,8 +17,8 @@ const LawFirmsPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [success, setSuccess] = useState(false);
   const isDark = true;
-  const muted = 'text-neutral-400';
-  const kicker = 'text-yellow-400';
+  const muted = 'text-slate-300';
+  const kicker = 'text-[#D4B06A]';
 
   const toForm = () => document.getElementById('audit')?.scrollIntoView({ behavior: 'smooth' });
 
@@ -44,11 +44,11 @@ const LawFirmsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen font-sans bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen font-sans bg-[#0B1B33] text-white overflow-x-hidden">
       <SuccessOverlay isVisible={success} onClose={() => setSuccess(false)} />
 
       {/* NAV */}
-      <nav className="fixed w-full z-40 bg-black/90 backdrop-blur-xl border-b border-white/5 py-4">
+      <nav className="fixed w-full z-40 bg-[#0B1B33]/90 backdrop-blur-xl border-b border-white/10 py-4">
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="/" className="flex items-center gap-3">
             <CFLogo className="h-8 w-auto text-white" />
@@ -62,7 +62,7 @@ const LawFirmsPage: React.FC = () => {
 
       {/* HERO */}
       <section className="pt-36 pb-20 relative overflow-hidden">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-[140px] bg-blue-600/15 pointer-events-none"></div>
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-[160px] bg-blue-500/10 pointer-events-none"></div>
         <div className="container mx-auto px-6 relative z-10 max-w-4xl text-center">
           <div className={`inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] mb-6 ${kicker}`}>
             <Scale size={14} /> For law firms & tax advisors
@@ -74,7 +74,7 @@ const LawFirmsPage: React.FC = () => {
             We turn your expertise into a library of explainer videos that answers their questions, builds trust and brings in consultations. You record. <span className="text-white font-semibold">We do everything else.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <button onClick={toForm} className="btn-sheen px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full inline-flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25">
+            <button onClick={toForm} className="btn-sheen px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full inline-flex items-center justify-center gap-2 shadow-lg shadow-black/30">
               Get a Free Channel Audit <ArrowRight size={17} />
             </button>
             {BOOKING_URL && (
@@ -83,11 +83,11 @@ const LawFirmsPage: React.FC = () => {
               </a>
             )}
           </div>
-          <div className="grid grid-cols-3 max-w-xl mx-auto mt-12 pt-8 border-t border-white/10">
+          <div className="grid grid-cols-3 max-w-xl mx-auto mt-12 pt-8 border-t border-white/15">
             {[['500+', 'Legal & tax videos produced'], ['2–3 hrs', 'Your time per week'], ['4.9★', 'From 82 client reviews']].map(([v, l]) => (
               <div key={l}>
                 <div className="text-2xl md:text-3xl font-bold">{v}</div>
-                <div className="text-[10px] uppercase tracking-[0.15em] mt-1.5 text-neutral-500">{l}</div>
+                <div className="text-[10px] uppercase tracking-[0.15em] mt-1.5 text-slate-400">{l}</div>
               </div>
             ))}
           </div>
@@ -95,7 +95,7 @@ const LawFirmsPage: React.FC = () => {
       </section>
 
       {/* WORK */}
-      <section className="py-20 bg-neutral-950 border-y border-neutral-900">
+      <section className="py-20 bg-[#08162B] border-y border-white/10">
         <div className="container mx-auto px-6 max-w-6xl">
           <Reveal variant="fade-up">
             <div className="text-center mb-12">
@@ -128,10 +128,10 @@ const LawFirmsPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {steps.map((s, i) => (
               <Reveal key={i} delay={i * 120} variant="fade-up" className="h-full">
-                <div className="p-7 rounded-3xl border border-neutral-800 bg-neutral-900 h-full">
+                <div className="p-7 rounded-3xl border border-[#1E3A5F] bg-[#10284A] h-full">
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-900/20 text-blue-400">{s.icon}</div>
-                    <span className="text-4xl font-black text-neutral-800">0{i + 1}</span>
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-[#D4B06A]/10 text-[#D4B06A]">{s.icon}</div>
+                    <span className="text-4xl font-black text-white/10">0{i + 1}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3">{s.title}</h3>
                   <p className={`text-sm leading-relaxed ${muted}`}>{s.desc}</p>
@@ -150,13 +150,13 @@ const LawFirmsPage: React.FC = () => {
       </section>
 
       {/* MEET */}
-      <section className="py-20 bg-neutral-950 border-y border-neutral-900">
+      <section className="py-20 bg-[#08162B] border-y border-white/10">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <div className={`text-xs font-semibold uppercase tracking-[0.3em] mb-4 ${kicker}`}>Who you’ll work with</div>
           <h2 className="text-3xl md:text-4xl font-bold mb-10">Meet Ammaz</h2>
           <FounderVideo videoId="lFLgvsUs8Eo" caption="Meet Ammaz · How CreativeFlic works · 2:47" isDark={isDark} />
-          <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-neutral-400">
-            <span className="flex items-center gap-1">{[0, 1, 2, 3, 4].map((i) => <Star key={i} size={14} className="text-yellow-400" fill="currentColor" />)} <b className="text-white ml-1">4.9</b> from 82 reviews</span>
+          <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-slate-300">
+            <span className="flex items-center gap-1">{[0, 1, 2, 3, 4].map((i) => <Star key={i} size={14} className="text-[#D4B06A]" fill="currentColor" />)} <b className="text-white ml-1">4.9</b> from 82 reviews</span>
             <span><b className="text-white">97%</b> job success</span>
             <span><b className="text-white">Top Rated Plus</b> on Upwork</span>
           </div>
@@ -174,10 +174,10 @@ const LawFirmsPage: React.FC = () => {
             {faqs.map((f, i) => {
               const open = openFaq === i;
               return (
-                <div key={i} className={`rounded-2xl border ${open ? 'border-blue-500/50 bg-neutral-900' : 'border-neutral-800 bg-neutral-900/40'}`}>
+                <div key={i} className={`rounded-2xl border ${open ? 'border-[#D4B06A]/50 bg-[#10284A]' : 'border-[#1E3A5F] bg-[#0E2240]'}`}>
                   <button type="button" onClick={() => setOpenFaq(open ? null : i)} aria-expanded={open} className="w-full flex items-center justify-between gap-4 p-5 text-left">
                     <span className="font-bold">{f.q}</span>
-                    <ChevronDown size={18} className={`shrink-0 transition-transform ${open ? 'rotate-180 text-blue-500' : muted}`} />
+                    <ChevronDown size={18} className={`shrink-0 transition-transform ${open ? 'rotate-180 text-[#D4B06A]' : muted}`} />
                   </button>
                   {open && <p className={`px-5 pb-5 -mt-1 text-sm leading-relaxed ${muted}`}>{f.a}</p>}
                 </div>
@@ -188,19 +188,19 @@ const LawFirmsPage: React.FC = () => {
       </section>
 
       {/* AUDIT FORM */}
-      <section id="audit" className="py-24 bg-gradient-to-b from-neutral-900 to-black">
+      <section id="audit" className="py-24 bg-gradient-to-b from-[#0E2240] to-[#08162B]">
         <div className="container mx-auto px-6">
           <ContactForm brandBlue="bg-blue-600" onSuccess={() => { track('generate_lead', { form: 'free_audit', page: 'law_firms' }); setSuccess(true); }} isDark={isDark} />
           {BOOKING_URL && (
             <p className="text-center mt-8 text-sm text-neutral-400">
-              Prefer to talk? <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => track('book_call_click', { page: 'law_firms' })} className="text-blue-400 font-semibold hover:underline">Book a 20-minute call</a>
+              Prefer to talk? <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => track('book_call_click', { page: 'law_firms' })} className="text-[#D4B06A] font-semibold hover:underline">Book a 20-minute call</a>
             </p>
           )}
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 border-t border-neutral-900 text-sm text-neutral-500">
+      <footer className="py-10 border-t border-white/10 text-sm text-slate-400 bg-[#08162B]">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-5">
           <a href="/" className="flex items-center gap-2.5 text-white font-bold"><CFLogo className="h-6 w-auto text-white" /> CREATIVEFLIC</a>
           <div className="flex gap-4 items-center">

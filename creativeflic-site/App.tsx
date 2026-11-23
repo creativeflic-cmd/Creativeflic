@@ -581,7 +581,7 @@ const App = () => {
 
             <Reveal delay={250} variant="fade-up">
               <div className="mb-11">
-                <div className={`text-[10px] font-bold uppercase tracking-[0.3em] mb-4 ${isDark ? 'text-neutral-600' : 'text-neutral-500'}`}>For Product Brands $1M–$20M & Expert-Led Firms</div>
+                <div className={`text-[10px] font-bold uppercase tracking-[0.3em] mb-4 ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>For Product Brands $1M–$20M & Expert-Led Firms</div>
                 <div className="flex flex-wrap justify-center gap-2">
                   {[
                     { icon: <ShoppingCart size={13} />, label: 'Ecommerce' },
@@ -614,7 +614,7 @@ const App = () => {
                   See The Results
                 </button>
               </div>
-              <p className={`mt-5 text-xs ${isDark ? 'text-neutral-600' : 'text-neutral-500'}`}>
+              <p className={`mt-5 text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
                 Free 10-min teardown · No call · No obligation
               </p>
             </Reveal>
@@ -631,7 +631,7 @@ const App = () => {
                     <div className={`text-2xl md:text-3xl font-bold tracking-tight ${theme.text}`}>
                       <CountUp end={s.end} decimals={s.decimals} prefix={s.prefix} suffix={s.suffix} />
                     </div>
-                    <div className={`text-[10px] md:text-[11px] uppercase tracking-[0.15em] mt-1.5 ${isDark ? 'text-neutral-500' : 'text-neutral-600'}`}>{s.label}</div>
+                    <div className={`text-[10px] md:text-[11px] uppercase tracking-[0.15em] mt-1.5 ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -764,7 +764,7 @@ const App = () => {
                       {[0, 1, 2, 3, 4].map((k) => <Star key={k} size={13} className="text-yellow-400" fill="currentColor" />)}
                     </div>
                     <p className={`text-sm leading-relaxed flex-grow ${theme.text}`}>“{r.text}”</p>
-                    <div className={`mt-4 text-[11px] uppercase tracking-[0.15em] ${isDark ? 'text-neutral-500' : 'text-neutral-600'}`}>Verified client · {r.context}</div>
+                    <div className={`mt-4 text-[11px] uppercase tracking-[0.15em] ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>Verified client · {r.context}</div>
                   </div>
                 </Reveal>
               ))}
@@ -1008,7 +1008,7 @@ const App = () => {
 
 
           <Reveal delay={350} variant="fade-in">
-            <p className={`mt-8 text-center text-xs ${isDark ? 'text-neutral-600' : 'text-neutral-500'}`}>
+            <p className={`mt-8 text-center text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
               Not ready for the full engine? <span className="font-bold">Editing + Strategy Lite from $1,200/mo</span>: editing plus a monthly content plan, without the full system.
             </p>
           </Reveal>
@@ -1085,9 +1085,9 @@ const App = () => {
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             <Reveal delay={0} variant="slide-right" className="h-full">
-              <div className={`p-8 rounded-3xl border-2 h-full ${isDark ? 'border-green-800/50 bg-green-950/10' : 'border-green-300 bg-green-50'}`}>
-                <h4 className={`text-xl font-black mb-6 flex items-center gap-3 ${isDark ? 'text-green-400' : 'text-green-700'}`}>
-                  <CheckCircle2 size={24} /> A Great Fit If
+              <div className={`p-8 rounded-3xl border h-full ${isDark ? 'border-neutral-800 bg-neutral-900/60' : 'border-neutral-200 bg-white'}`}>
+                <h4 className={`text-xl font-black mb-6 flex items-center gap-3 ${theme.text}`}>
+                  <CheckCircle2 size={24} className="text-green-500" /> A Great Fit If
                 </h4>
                 <ul className="space-y-4">
                   {fitYes.map((item, i) => (
@@ -1100,9 +1100,9 @@ const App = () => {
             </Reveal>
 
             <Reveal delay={100} variant="slide-right" className="h-full">
-              <div className={`p-8 rounded-3xl border-2 h-full ${isDark ? 'border-red-900/40 bg-red-950/10' : 'border-red-200 bg-red-50'}`}>
-                <h4 className={`text-xl font-black mb-6 flex items-center gap-3 ${isDark ? 'text-red-400' : 'text-red-600'}`}>
-                  <XCircle size={24} /> Not for You If
+              <div className={`p-8 rounded-3xl border h-full ${isDark ? 'border-neutral-800 bg-neutral-900/60' : 'border-neutral-200 bg-white'}`}>
+                <h4 className={`text-xl font-black mb-6 flex items-center gap-3 ${theme.text}`}>
+                  <XCircle size={24} className="text-red-500" /> Not for You If
                 </h4>
                 <ul className="space-y-4">
                   {fitNo.map((item, i) => (
@@ -1230,7 +1230,7 @@ const App = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className={`py-12 border-t text-sm pb-32 md:pb-12 ${isDark ? 'bg-black border-neutral-900 text-neutral-500' : 'bg-neutral-50 border-neutral-200 text-neutral-600'}`}>
+      <footer className={`py-12 border-t text-sm pb-32 md:pb-12 ${isDark ? 'bg-black border-neutral-900 text-neutral-400' : 'bg-neutral-50 border-neutral-200 text-neutral-600'}`}>
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2.5">

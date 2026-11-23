@@ -49,7 +49,7 @@ const FounderVideo: React.FC<FounderVideoProps> = ({ videoId, caption, isDark })
           </button>
         )}
       </div>
-      <figcaption className={`mt-3 text-xs ${isDark ? 'text-neutral-500' : 'text-neutral-600'}`}>
+      <figcaption className={`mt-3 text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>
         {caption} · Sound on
       </figcaption>
     </figure>

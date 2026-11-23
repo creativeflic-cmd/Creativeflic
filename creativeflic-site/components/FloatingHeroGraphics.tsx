@@ -51,7 +51,7 @@ const FloatingHeroGraphics = ({ isDark }: { isDark: boolean }) => {
                         <BarChart3 size={16} className="md:w-5 md:h-5" />
                     </div>
                     <div>
-                        <div className={`text-[9px] md:text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-neutral-500' : 'text-neutral-600'}`}>Client Revenue</div>
+                        <div className={`text-[9px] md:text-[10px] font-bold uppercase tracking-wider ${isDark ? 'text-neutral-400' : 'text-neutral-600'}`}>Client Revenue</div>
                         <div className={`text-lg md:text-xl font-black leading-none ${isDark ? 'text-white' : 'text-neutral-900'}`}>$5.5M<span className="text-[10px] font-bold text-neutral-500">/yr</span></div>
                     </div>
                 </div>

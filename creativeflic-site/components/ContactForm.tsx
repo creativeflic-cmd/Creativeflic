@@ -77,7 +77,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ brandBlue, onSuccess, isDark 
 
   const containerBg = isDark ? 'bg-neutral-900/80 border-neutral-800' : 'bg-white/90 border-neutral-300 shadow-xl';
   const inputBg = isDark ? 'bg-black/50 border-neutral-800 text-white focus:bg-black/80' : 'bg-white border-neutral-400 text-black focus:bg-neutral-50';
-  const labelColor = isDark ? 'text-neutral-500' : 'text-neutral-800';
+  const labelColor = isDark ? 'text-neutral-400' : 'text-neutral-800';
   const textColor = isDark ? 'text-white' : 'text-neutral-900';
 
   return (
@@ -190,7 +190,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ brandBlue, onSuccess, isDark 
             </>
           )}
         </button>
-        <p className={`text-center text-xs ${isDark ? 'text-neutral-600' : 'text-neutral-500'}`}>
+        <p className={`text-center text-xs ${isDark ? 'text-neutral-400' : 'text-neutral-500'}`}>
           We reply within 24 hours. Audits are limited to 6 per week, first come first served.
           <br />By sending this you agree to our <a href="/privacy.html" className="underline underline-offset-2">Privacy Policy</a>. No spam, ever.
         </p>
