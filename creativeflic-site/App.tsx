@@ -349,9 +349,11 @@ const App = () => {
     { label: 'Featured', videos: [
       { id: 'ukcyNGGO8uY', title: 'Why Car Brands Are Quietly Threatening YouTubers', label: 'Faceless channel · Tuna No Crust · 56M views' },
       { id: '87XQIwoZ6pg', title: 'Money Ball: Levi vs Eric', label: 'Creator · Lively Lewis Show · 6M+ subs' },
+      { id: '9aI0OzNuIKY', title: 'The 6 Worst Wingsuit Pilot Accidents In History', label: 'Documentary · Extreme Edge Stories' },
+      { id: 'Sa_NBfWW510', title: 'If You Run Facebook Ads… Everything Just Changed', label: 'Founder content · Perform Digital Media' },
       { id: '68tKi1QjSBQ', title: 'This AI Will Replace All Sales Agencies', label: 'B2B SaaS · Salesforge' },
+      { id: 'HtexMiTvGaA', title: 'Ticket Mastery: Expert VSL', label: 'Expert VSL · Personal brand' },
       { id: 'cOgay6dZ0NM', title: 'Alabama’s Hidden 90-Day Trust Rule', label: 'Law firm · Brenton C. McWilliams' },
-      { id: 'rZEyxn1wi-0', title: 'How Much Do Hearing Aids Cost in 2026?', label: 'DTC health · HearDirectClub' },
       { id: 'tbswXCkh6ug', title: 'The Dating Expert: “I’ve Helped 4,000 Men Find Love”', label: 'Podcast · The Passionate Few · 326K subs' },
     ]},
     { label: 'B2B & SaaS', videos: [
